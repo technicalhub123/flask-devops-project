@@ -1,0 +1,38 @@
+body {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  text-align: center;
+  padding-top: 80px;
+  margin: 0;
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 40px;
+  border-radius: 15px;
+  display: inline-block;
+  animation: fadeIn 2s ease-in;
+}
+
+button {
+  padding: 12px 24px;
+  background: #fff;
+  color: #333;
+  border: none;
+  font-size: 1em;
+  margin-top: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #ddd;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
