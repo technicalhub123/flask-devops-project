@@ -10,34 +10,7 @@ This project is based on the [flask-layered-template](https://github.com/sangmin
 
 
 
-.
-├── app.py
-├── config/
-│ ├── development.py
-│ ├── init.py
-│ ├── production.py
-│ └── test.py
-├── docker-compose.yml
-├── Dockerfile
-├── Multistage-Dockerfile
-├── model/
-│ ├── auth_dao.py
-│ └── init.py
-├── requirements.txt
-├── service/
-│ ├── auth_service.py
-│ └── init.py
-├── static/
-│ ├── css/
-│ │ └── style.css
-│ └── js/
-│ └── script.js
-├── templates/
-│ └── index.html
-└── view/
-├── auth_view.py
-├── home_view.py
-└── init.py
+<pre> ```bash . ├── app.py ├── config/ │ ├── development.py │ ├── __init__.py │ ├── production.py │ └── test.py ├── docker-compose.yml ├── Dockerfile ├── Multistage-Dockerfile ├── model/ │ ├── auth_dao.py │ └── __init__.py ├── requirements.txt ├── service/ │ ├── auth_service.py │ └── __init__.py ├── static/ │ ├── css/ │ │ └── style.css │ └── js/ │ └── script.js ├── templates/ │ └── index.html └── view/ ├── auth_view.py ├── home_view.py └── __init__.py ``` </pre>
 
 
 ## Architecture Overview
