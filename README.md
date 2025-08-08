@@ -10,7 +10,41 @@ This project is based on the [flask-layered-template](https://github.com/sangmin
 
 
 
-<pre> ```bash . ├── app.py ├── config/ │ ├── development.py │ ├── __init__.py │ ├── production.py │ └── test.py ├── docker-compose.yml ├── Dockerfile ├── Multistage-Dockerfile ├── model/ │ ├── auth_dao.py │ └── __init__.py ├── requirements.txt ├── service/ │ ├── auth_service.py │ └── __init__.py ├── static/ │ ├── css/ │ │ └── style.css │ └── js/ │ └── script.js ├── templates/ │ └── index.html └── view/ ├── auth_view.py ├── home_view.py └── __init__.py ``` </pre>
+## Project Structure 
+
+```text
+.
+├── app.py
+├── cat
+├── config
+│   ├── development.py
+│   ├── __init__.py
+│   ├── production.py
+│   └── test.py
+├── docker-compose.yml
+├── Dockerfile
+├── model
+│   ├── auth_dao.py
+│   └── __init__.py
+├── Multistage-Dockerfile
+├── README.md
+├── requirements.txt
+├── service
+│   ├── auth_service.py
+│   └── __init__.py
+├── static
+│   ├── css
+│   │   └── style.css
+│   └── js
+│       └── script.js
+├── templates
+│   └── index.html
+└── view
+    ├── auth_view.py
+    ├── home_view.py
+    └── __init__.py
+
+8 directories, 21 files
 
 
 ## Architecture Overview
@@ -85,7 +119,7 @@ Flask App: http://localhost:5000
 
 MySQL Admin: docker exec -it mysql-container mysql -u root -p
 
-### Your Major Enhancements:
+### Major Enhancements:
 1. **Dockerization**:
    - Added 3 Docker configurations (standard, multi-stage, compose)
    - Production-ready container optimizations
