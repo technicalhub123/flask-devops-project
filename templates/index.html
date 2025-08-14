@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flask Auth API Portal</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
-</head>
-<body>
-  <div class="container">
+{% extends "layout.html" %}
+
+{% block title %}Home - Flask Auth{% endblock %}
+
+{% block content %}
+  <div class="container card">
     <h1>👋 Welcome to Flask Auth API Portal</h1>
-    <p>This is the API backend for authentication services.</p>
-    <button id="checkBtn">Check API Health</button>
-    <p id="response"></p>
+    <p>This is the API backend for authentication services. Use the links in the navbar to test signup and view users.</p>
+
+    <button id="checkBtn" class="btn">Check API Health</button>
+    <p id="response" class="muted"></p>
   </div>
-
-  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-</body>
-</html>
-
+{% endblock %}

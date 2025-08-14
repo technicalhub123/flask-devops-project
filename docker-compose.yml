@@ -1,22 +1,26 @@
 version: '3.8'
 
 services:
-  mysql-container:  # Match hostname in development.py
+  mysql-container:
     image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: "1111"  # Same as in development.py
+      MYSQL_ROOT_PASSWORD: "1111"
       MYSQL_DATABASE: "ggulgguk"
     ports:
       - "3306:3306"
     networks:
-      - my-network    
+      - my-network
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    command: 
+      - "--init-file=/docker-entrypoint-initdb.d/init.sql"
+      - "--default-authentication-plugin=mysql_native_password"
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p1111"]
       interval: 5s
       timeout: 10s
-      retries: 5
+      retries: 10
 
   flask-app:
     build: .
@@ -29,8 +33,10 @@ services:
     depends_on:
       mysql-container:
         condition: service_healthy
+
 networks:
   my-network:
     driver: bridge    
+
 volumes:
   mysql_data:

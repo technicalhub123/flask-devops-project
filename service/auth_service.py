@@ -1,5 +1,5 @@
 import bcrypt
-
+from sqlalchemy.exc import SQLAlchemyError
 
 class AuthService:
     def __init__(self, auth_dao, config):
@@ -7,9 +7,22 @@ class AuthService:
         self.config = config
 
     def create_new_user(self, new_user):
-        new_user["hashed_password"] = bcrypt.hashpw(
-            new_user["password"].encode("UTF-8"), bcrypt.gensalt()
-        )
+        try:
+            new_user["hashed_password"] = bcrypt.hashpw(
+                new_user["password"].encode("UTF-8"), bcrypt.gensalt()
+            ).decode('utf-8')  # Decode for MySQL storage
+            
+            # Remove password key to prevent accidental exposure
+            del new_user["password"]
+            
+            return self.auth_dao.insert_user(new_user)
+        except SQLAlchemyError as e:
+            error = str(e.__dict__['orig'])
+            raise Exception(f"Database error: {error}") from e
 
-        new_user_id = self.auth_dao.insert_user(new_user)
-        return new_user_id
+    def get_all_users(self):
+        try:
+            return self.auth_dao.get_all_users()
+        except SQLAlchemyError as e:
+            error = str(e.__dict__['orig'])
+            raise Exception(f"Database error: {error}") from e

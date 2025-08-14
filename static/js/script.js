@@ -1,11 +1,17 @@
-document.getElementById("checkBtn").addEventListener("click", () => {
-  fetch("/ping")
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("response").innerText = "Response: " + data;
-    })
-    .catch(() => {
-      document.getElementById("response").innerText = "Error: API not reachable";
+// Health check (index page)
+document.addEventListener("DOMContentLoaded", () => {
+  const checkBtn = document.getElementById("checkBtn");
+  const resp = document.getElementById("response");
+  if (checkBtn) {
+    checkBtn.addEventListener("click", () => {
+      fetch("/ping")
+        .then(res => res.text())
+        .then(data => {
+          resp.innerText = "Response: " + data;
+        })
+        .catch(() => {
+          resp.innerText = "Error: API not reachable";
+        });
     });
+  }
 });
-

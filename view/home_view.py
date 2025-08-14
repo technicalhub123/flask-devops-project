@@ -7,5 +7,14 @@ def create_home_blueprint():
     def homepage():
         return render_template("index.html")
 
-    return home_bp
+    # Frontend page for signup form
+    @home_bp.route("/signup-page")
+    def signup_page():
+        return render_template("signup.html")
 
+    # Frontend page for users listing
+    @home_bp.route("/users-page")
+    def users_page():
+        return render_template("users.html")
+
+    return home_bp

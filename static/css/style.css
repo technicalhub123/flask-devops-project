@@ -1,38 +1,156 @@
-body {
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
-  font-family: 'Segoe UI', sans-serif;
-  color: white;
-  text-align: center;
-  padding-top: 80px;
+/* Modern Glassmorphism Design */
+:root {
+  --bg1: #6e8efb;
+  --bg2: #a777e3;
+  --glass: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.18);
+}
+
+* { 
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', 'Inter', -apple-system, sans-serif;
 }
 
-.container {
-  background: rgba(0, 0, 0, 0.3);
-  padding: 40px;
-  border-radius: 15px;
-  display: inline-block;
-  animation: fadeIn 2s ease-in;
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: #fff;
+  padding: 20px;
 }
 
-button {
-  padding: 12px 24px;
-  background: #fff;
-  color: #333;
+/* Glass Panel */
+.glass-panel {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  padding: 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #fff, #e0e0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.15);
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 3px rgba(110, 142, 251, 0.2);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 2rem;
+  border-radius: 12px;
   border: none;
-  font-size: 1em;
-  margin-top: 20px;
-  border-radius: 8px;
+  background: #fff;
+  color: #6e8efb;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-button:hover {
-  background: #ddd;
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
+.btn-primary {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: white;
+}
+
+/* Table Styling */
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.users-table th,
+.users-table td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+}
+
+.users-table th {
+  background: rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+}
+
+.users-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Notification Messages */
+.notification {
+  padding: 1rem;
+  border-radius: 12px;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.notification-success {
+  background: rgba(46, 204, 113, 0.2);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+.notification-error {
+  background: rgba(231, 76, 60, 0.2);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+/* Animations */
 @keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(-20px); }
-  100% { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
+.fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% block title %}Flask Auth Portal{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="{{ url_for('home.homepage') }}">Flask Auth</a>
+      <div class="nav-links">
+        <a href="{{ url_for('home.homepage') }}">Home</a>
+        <a href="{{ url_for('home.signup_page') }}">Signup</a>
+        <a href="{{ url_for('home.users_page') }}">Users</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

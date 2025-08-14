@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}User Management - Flask Auth{% endblock %}
+
+{% block content %}
+<div class="glass-panel fade-in">
+  <div class="header-section">
+    <h1>👥 User Management</h1>
+    <p>Manage registered users in the system</p>
+  </div>
+
+  <div class="user-actions">
+    <button id="refreshUsers" class="btn">
+      <i class="icon-refresh"></i> Refresh List
+    </button>
+    <span id="usersCount" class="user-count">0 users</span>
+  </div>
+
+  <div class="notification" id="usersMsg" style="display: none;">
+    <!-- Messages will appear here -->
+  </div>
+
+  <div class="table-responsive">
+    <table class="users-table" id="usersTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Email</th>
+          <th>Username</th>
+          <th>Joined</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Users will be populated via JavaScript -->
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/users.js') }}"></script>
+{% endblock %}
