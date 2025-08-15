@@ -9,11 +9,15 @@
 <body>
   <nav class="navbar">
     <div class="nav-inner">
-      <a class="brand" href="{{ url_for('home.homepage') }}">Flask Auth</a>
       <div class="nav-links">
-        <a href="{{ url_for('home.homepage') }}">Home</a>
-        <a href="{{ url_for('home.signup_page') }}">Signup</a>
-        <a href="{{ url_for('home.users_page') }}">Users</a>
+	 <a class="nav-link {% if request.endpoint == 'home.homepage' %}active{% endif %}" 
+           href="{{ url_for('home.homepage') }}">Home</a>
+        
+        <a class="nav-link {% if request.endpoint == 'home.signup_page' %}active{% endif %}" 
+           href="{{ url_for('home.signup_page') }}">Signup</a>
+        
+        <a class="nav-link {% if request.endpoint == 'home.users_page' %}active{% endif %}" 
+           href="{{ url_for('home.users_page') }}">Users</a>
       </div>
     </div>
   </nav>

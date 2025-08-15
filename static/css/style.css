@@ -154,3 +154,66 @@ input:focus {
 .fade-in {
   animation: fadeIn 0.4s ease forwards;
 }
+
+/* Buttons */
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: flex-end; /* Align links to the right */
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem; /* Equal spacing between links */
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white; /* Changed to white */
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Hover effect */
+.nav-link:hover {
+  color: #e53935; /* Reddish color on hover */
+  background-color: rgba(233, 30, 99, 0.1); /* Light reddish background on hover */
+}
+
+/* Active state - matches hover effect */
+.nav-link.active {
+  color: #e53935;
+  background-color: rgba(233, 30, 99, 0.1);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #e53935; /* Reddish underline */
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after { /* Added active state */
+  width: 100%;
+}
+
+/* Make the navigation responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 1rem;
+  }
+  .nav-link {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
