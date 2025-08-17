@@ -1,8 +1,8 @@
 stages:
-    -build
-    -test
-    -push
-    -deploy
+    - build
+    - test
+    - push
+    - deploy
 
 build_job:
     stage: build
