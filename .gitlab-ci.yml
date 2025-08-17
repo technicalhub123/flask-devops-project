@@ -1,0 +1,25 @@
+stages:
+    -build
+    -test
+    -push
+    -deploy
+
+build_job:
+    stage: build
+    script:
+        - echo  "This build is done by using commond <docker build -t tag .>"
+
+test_job:
+    stage: test
+    sript:
+        - echo "This is test job for docker build"
+
+push_job:
+    stage: push
+    script:
+        - echo "This job is for pushing to docker hub"
+
+deploy_job:
+    stage: deploy
+    script:
+        - echo "this job is to deploy code on cloud"            
