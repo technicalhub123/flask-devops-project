@@ -11,7 +11,7 @@ build_job:
 
 test_job:
     stage: test
-    sript:
+    script:
         - echo "This is test job for docker build"
 
 push_job:
