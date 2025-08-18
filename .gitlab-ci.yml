@@ -22,4 +22,11 @@ push_job:
 deploy_job:
     stage: deploy
     script:
-        - echo "this job is to deploy code on local machine"            
+        - echo "this job is to deploy code on local machine"     
+
+dev-test-job:
+    stage:
+    script:
+        - echo "This is for testing"         
+
+
