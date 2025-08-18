@@ -16,7 +16,7 @@ test_job:
         - mkdir -p logs
         - echo "This line is for logs testing" > logs/flask.log
     artifacts:
-        path: 
+        paths: 
             - logs/
         expire_in: 1 week    
 
