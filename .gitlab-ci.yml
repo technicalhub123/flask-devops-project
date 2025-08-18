@@ -13,6 +13,12 @@ test_job:
     stage: test
     script:
         - echo "This is test job for docker build"
+        - mkdir -p logs
+        - echo "This line is for logs testing" > logs/flask.log
+    artifacts:
+        path: 
+            - logs/
+        expire_in: 1 week    
 
 push_job:
     stage: push
