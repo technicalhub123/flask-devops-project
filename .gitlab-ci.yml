@@ -8,8 +8,8 @@ build_job:
     stage: build
     script:
         - echo  "This build is done by using commond <docker build -t tag .>"
-tags:
-    - dev
+    tags:
+        - dev
 
 test_job:
     stage: test
@@ -21,28 +21,28 @@ test_job:
         paths: 
             - logs/
         expire_in: 1 week 
-tags:
-    - dev   
+    tags:
+        - dev   
 
 push_job:
     stage: push
     script:
         - echo "This job is for pushing to docker hub"
-tags:
-    - dev
+    tags:
+        - dev
 
 deploy_job:
     stage: deploy
     script:
         - echo "this job is to deploy code on local machine"   
-tags:
-    - dev  
+    tags:
+        - dev  
 
 dev-test-job:
     stage:
     script:
         - echo "This is for testing"   
-tags:
-    - dev      
+    tags:
+        - dev      
 
 
